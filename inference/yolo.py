@@ -6,6 +6,11 @@ class YoloInference:
         """
         Initializes the YOLOv5 inference engine using torch.hub.
         """
+        # FIX: Properly handle device string
+        if device == "cuda" and not torch.cuda.is_available():
+            print("[WARN] CUDA requested but not available, using CPU")
+            device = "cpu"
+        
         self.device = device
         
         # Ensure absolute path for the model
@@ -16,15 +21,35 @@ class YoloInference:
             if os.path.exists(potential_path):
                 model_path = potential_path
             else:
-                 print(f"[WARN] Model file not found at {model_path} or {potential_path}")
+                print(f"[WARN] Model file not found at {model_path} or {potential_path}")
         
         print(f"[INFO] Loading YOLOv5 model from {model_path} on {device}...")
         
         # Load model using torch.hub
-        # We use 'ultralytics/yolov5' from GitHub, loading our custom weights (yolov5n.pt)
-        # trust_repo=True is often required for cleaner automation
+        # FIX: Pass device as integer for CUDA or 'cpu' string
         try:
-            self.model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, device=device, force_reload=False, _verbose=False)
+            if device == "cuda":
+                # For CUDA, pass device index (0 for first GPU)
+                self.model = torch.hub.load(
+                    'ultralytics/yolov5', 
+                    'custom', 
+                    path=model_path, 
+                    device=0,  # Use GPU 0 instead of string "cuda"
+                    force_reload=False, 
+                    _verbose=False
+                )
+            else:
+                self.model = torch.hub.load(
+                    'ultralytics/yolov5', 
+                    'custom', 
+                    path=model_path, 
+                    device='cpu',
+                    force_reload=False, 
+                    _verbose=False
+                )
+            
+            print(f"[INFO] ✓ YOLOv5 loaded successfully on {device}")
+            
         except Exception as e:
             print(f"[ERROR] Failed to load YOLOv5 via torch.hub: {e}")
             raise e

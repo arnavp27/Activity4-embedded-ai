@@ -1,0 +1,29 @@
+============================================================
+EXPERIMENT 1: FPS CONTROL
+============================================================
+
+Target FPS: 2
+  Actual FPS: 1.88
+  Frames processed: 57
+  Avg inference time: 36.21 ms
+  Memory usage: 3754 MB
+------------------------------------------------------------
+
+Target FPS: 5
+  Actual FPS: 4.43
+  Frames processed: 134
+  Avg inference time: 33.76 ms
+  Memory usage: 3776 MB
+------------------------------------------------------------
+
+Target FPS: 10
+  Actual FPS: 8.32
+  Frames processed: 252
+  Avg inference time: 29.36 ms
+  Memory usage: 3785 MB
+------------------------------------------------------------
+
+RECOMMENDATION:
+  Optimal FPS = 10
+  Achieves 8.32 FPS
+  Memory: 3785 MB

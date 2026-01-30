@@ -1,0 +1,15 @@
+======================================================================
+YOLO QUANTIZATION RESULTS
+======================================================================
+
+Original YOLOv5n (PyTorch):
+  Size: 3.87 MB
+  Inference time: 32.44 ms
+
+ONNX FP16 (Optimized):
+  Size: 3.82 MB
+  Size reduction: 1.5%
+
+Files Created:
+  1. 1. models/yolov5n_fp32.onnx
+  2. 2. models/yolov5n_fp16.onnx

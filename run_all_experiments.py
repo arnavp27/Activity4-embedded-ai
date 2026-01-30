@@ -1,5 +1,5 @@
-# run_all_experiments.py
-# Master script to run all experiments sequentially
+# run_all_experiments_updated.py
+# Master script with YOLO quantization and final comparison
 
 import os
 import sys
@@ -29,11 +29,13 @@ def run_script(script_path, description):
 
 def main():
     print("\n" + "="*80)
-    print("EMBEDDED AI - AUTOMATED EXPERIMENT RUNNER")
+    print("EMBEDDED AI - COMPLETE EXPERIMENT SUITE")
     print("="*80)
-    print("\nThis script will run all 4 experiments + quantization pipeline")
-    print("Each test takes approximately 30-60 seconds")
-    print("Total estimated time: 5-7 minutes")
+    print("\nThis script will run:")
+    print("  1-4: Basic experiments (FPS, Resolution, CPU/GPU, Models)")
+    print("    5: YOLO Quantization & Optimization")
+    print("    6: Final Comparison (MobileNet vs Optimized YOLO)")
+    print("\nTotal estimated time: 8-10 minutes")
     print("\nPress Ctrl+C at any time to stop")
     print("\n" + "="*80)
     
@@ -42,7 +44,7 @@ def main():
     # Check if we're in the correct directory
     if not os.path.exists("experiments") or not os.path.exists("quantization"):
         print("\n❌ Error: Please run this script from the project root directory")
-        print("   Expected structure: act4/ with experiments/ and quantization/ folders")
+        print("   Expected structure: Activity4-embedded-ai/ with experiments/ and quantization/ folders")
         return
     
     # List of experiments to run
@@ -51,7 +53,8 @@ def main():
         ("experiments/experiment_2_resolution.py", "Experiment 2: Resolution Change"),
         ("experiments/experiment_3_cpu_vs_gpu.py", "Experiment 3: CPU vs GPU"),
         ("experiments/experiment_4_mobilenet_vs_yolo.py", "Experiment 4: MobileNet vs YOLO"),
-        ("quantization/quantize_and_export.py", "Quantization Pipeline"),
+        ("quantization/quantize_yolo.py", "YOLO Quantization Pipeline"),
+        ("experiments/experiment_5_final_comparison.py", "Experiment 5: Final Comparison"),
     ]
     
     results = []
@@ -103,12 +106,23 @@ def main():
     print("  - results/experiment_2_results.txt")
     print("  - results/experiment_3_results.txt")
     print("  - results/experiment_4_results.txt")
-    print("  - results/quantization_results.txt")
+    print("  - results/yolo_quantization_results.txt")
+    print("  - results/experiment_5_results.txt")
     
-    print("\nModels created:")
-    print("  - models/mobilenet_v2_quantized_int8.pth")
-    print("  - models/mobilenet_v2_fp32.onnx")
-    print("  - models/mobilenet_v2_fp16.onnx")
+    print("\nOptimized models created:")
+    print("  - models/yolov5n_fp32.onnx")
+    print("  - models/yolov5n_fp16.onnx")
+    print("  - models/yolov5n_scripted.pt")
+    
+    print("\n" + "="*80)
+    print("ASSIGNMENT DELIVERABLES:")
+    print("="*80)
+    print("✓ Experiment 1: FPS Control (optimal = 5-10 FPS)")
+    print("✓ Experiment 2: Resolution comparison (FPS drop analysis)")
+    print("✓ Experiment 3: CPU vs GPU (speedup factor)")
+    print("✓ Experiment 4: Model comparison (MobileNet vs YOLO)")
+    print("✓ Quantization: YOLO optimization with ONNX export")
+    print("✓ Experiment 5: Final comparison showing optimization impact")
     
     print("\n" + "="*80 + "\n")
 

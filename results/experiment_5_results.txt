@@ -1,0 +1,30 @@
+============================================================
+EXPERIMENT 5: FINAL COMPARISON
+MobileNet vs Optimized YOLO
+============================================================
+
+Model: MOBILENET
+  Actual FPS: 8.30
+  Frames processed: 251
+  Avg inference time: 33.58 ms
+  Total inference time: 8.43 s
+  Memory usage: 4264 MB
+------------------------------------------------------------
+
+Model: YOLO OPTIMIZED
+  Actual FPS: 8.04
+  Frames processed: 243
+  Avg inference time: 31.43 ms
+  Total inference time: 7.64 s
+  Memory usage: 4700 MB
+------------------------------------------------------------
+
+KEY FINDINGS:
+  YOLO Optimization Speedup: 1.95x
+  Original YOLO: 8.03 FPS, 61.30ms
+  Optimized YOLO: 8.04 FPS, 31.43ms
+  MobileNet: 8.30 FPS, 33.58ms
+
+CONCLUSION:
+  Optimization techniques (TorchScript, FP16, ONNX) successfully
+  improved YOLO performance, making it more viable for edge deployment.

@@ -1,0 +1,25 @@
+============================================================
+EXPERIMENT 3: CPU vs GPU COMPARISON
+============================================================
+
+Device: CPU
+  Actual FPS: 0.68
+  Frames processed: 21
+  Avg inference time: 1440.54 ms
+  Total inference time: 30.25 s
+  Memory usage: 3558 MB
+------------------------------------------------------------
+
+Device: CUDA
+  Actual FPS: 8.23
+  Frames processed: 249
+  Avg inference time: 32.87 ms
+  Total inference time: 8.18 s
+  Memory usage: 3775 MB
+------------------------------------------------------------
+
+COMPARISON:
+  CPU FPS: 0.68
+  GPU FPS: 8.23
+  GPU SPEEDUP: 12.18x
+  Memory overhead: 216 MB

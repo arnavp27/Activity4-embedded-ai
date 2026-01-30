@@ -1,0 +1,23 @@
+============================================================
+EXPERIMENT 2: RESOLUTION CHANGE
+============================================================
+
+Resolution: 640×480
+  Actual FPS: 4.43
+  Frames processed: 134
+  Avg inference time: 32.68 ms
+  Memory usage: 3759 MB
+------------------------------------------------------------
+
+Resolution: 1280×720
+  Actual FPS: 3.82
+  Frames processed: 116
+  Avg inference time: 32.01 ms
+  Memory usage: 3790 MB
+------------------------------------------------------------
+
+ANALYSIS:
+  FPS at 640×480: 4.43
+  FPS at 1280×720: 3.82
+  FPS DROP: 13.7%
+  Memory increase: 31 MB

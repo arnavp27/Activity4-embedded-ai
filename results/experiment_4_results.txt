@@ -1,0 +1,33 @@
+============================================================
+EXPERIMENT 4: MOBILENET vs YOLO
+============================================================
+
+Model: MOBILENET
+  Actual FPS: 8.20
+  Frames processed: 248
+  Avg inference time: 32.18 ms
+  Total inference time: 7.98 s
+  Memory usage: 3934 MB
+------------------------------------------------------------
+
+Model: YOLO
+  Actual FPS: 8.03
+  Frames processed: 243
+  Avg inference time: 61.30 ms
+  Total inference time: 14.90 s
+  Memory usage: 4325 MB
+------------------------------------------------------------
+
+COMPARISON:
+  MobileNet FPS: 8.20
+  YOLO FPS: 8.03
+  FPS DROP: 2.1%
+  Memory increase: 391 MB
+
+OPTIMIZATIONS REQUIRED:
+  1. Use smaller YOLO variant (YOLOv8n)
+  2. Reduce input resolution (416×416)
+  3. Apply INT8 quantization
+  4. Use TensorRT optimization
+  5. Lower FPS target (5-10 FPS)
+  6. Implement frame skipping + tracking
