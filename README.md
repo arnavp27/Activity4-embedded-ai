@@ -1,4 +1,4 @@
-# Embedded AI - MobileNet on Edge
+# Embedded AI - MobileNet on Edge Updated
 
 **Course Assignment**: Embedded AI  
 **Instructor**: Dr. Dheeraj D, Atria University  
